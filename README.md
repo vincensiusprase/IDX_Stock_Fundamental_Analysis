@@ -7,7 +7,7 @@ Proyek ini bukan sekadar alat hitung, melainkan sebuah **Data Pipeline** terinte
 
 ### Alur Kerja Sistem (Workflow)
 1. **Python Engine:** Mengekstraksi data laporan keuangan (TTM & Tahunan) via Yahoo Finance API, menghitung skor fundamental, dan melakukan valuasi.
-2. **Google Sheets Storage:** Mengunggah hasil kalkulasi ke sheet spesifik berdasarkan sektor emiten (misal: `IDXTECHNO_VALUATION`, `IDXENERGY_VALUATION`).
+2. **Google Sheets Storage:** Mengunggah hasil kalkulasi ke sheet spesifik berdasarkan sektor emiten (misal: `IDXTECHNO_VALUATION`, `IDXENERGY_VALUATION`, dll).
 3. **Apps Script Compiler:** Skrip otomatis di dalam Google Sheets yang menggabungkan seluruh data sektoral menjadi satu laporan konsolidasi (`COMPILE_VALUATION` & `COMPILE_DETAILS`).
 
 ## 🚀 Fitur Utama
@@ -32,7 +32,7 @@ Otomatisasi penggabungan ribuan baris data antar sektor dengan fitur[cite: 1]:
 
 ## 📁 Struktur Repositori
 * `scripts/python/`: Kode sumber utama untuk ekstraksi dan logika valuasi[cite: 1].
-* `scripts/apps-script/`: File `.gs` berisi logika penggabungan (compiler) di Google Sheets[cite: 1].
+* `scripts/Apps Script/`: File `.gs` berisi logika penggabungan (compiler) di Google Sheets[cite: 1].
 * `data/`: Sampel data hasil akhir dalam format `.csv` (`COMPILE_VALUATION` & `COMPILE_DETAILS`)[cite: 1].
 
 ## 🛠 Tech Stack
@@ -41,7 +41,7 @@ Otomatisasi penggabungan ribuan baris data antar sektor dengan fitur[cite: 1]:
 * **Environment:** Google Colab / Local Python Environment[cite: 1].
 
 ## 📝 Cara Penggunaan
-1. Jalankan skrip Python di folder `scripts/python/` untuk mengisi data sektoral di Spreadsheet Anda[cite: 1].
+1. Salin kode dari `scripts/python/` jalankan skrip Python di Google Collab untuk mengisi data sektoral di Spreadsheet Anda[cite: 1].
 2. Buka **Extensions > Apps Script** di Google Sheets Anda[cite: 1].
 3. Salin kode dari `scripts/apps-script/` ke editor Apps Script[cite: 1].
 4. Jalankan fungsi `compileValuationSheets` atau `compileDetailsSheets` untuk mendapatkan laporan konsolidasi[cite: 1].
