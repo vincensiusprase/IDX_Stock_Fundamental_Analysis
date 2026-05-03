@@ -3,17 +3,21 @@
 Sistem otomatisasi pipeline data untuk melakukan analisis fundamental, valuasi multi-metode, dan konsolidasi data emiten di seluruh sektor Bursa Efek Indonesia (IDX).
 
 ## 📌 Overview
-Proyek ini bukan sekadar alat hitung, melainkan sebuah **Data Pipeline** terintegrasi yang menghubungkan ekstraksi data mentah dengan dashboard analitik otomatis. Sistem ini mencakup seluruh sektor (Techno, Energy, Finance, dll.) dan mengelola ratusan emiten secara simultan.
+Proyek ini adalah sebuah **Data Pipeline** terintegrasi yang menghubungkan ekstraksi data mentah dengan dashboard analitik otomatis. Sistem ini mencakup seluruh sektor (Techno, Energy, Finance, dll.) dan mengelola ratusan emiten secara simultan.
+
+## 🖼️ Visualisasi Dashboard
+![Looker Studio Dashboard Preview](images/dashboard_preview.png)
+> **Lihat Dashboard Interaktif:** [Link Looker Studio Anda di Sini]
 
 ### Alur Kerja Sistem (Workflow)
 1. **Python Engine:** Mengekstraksi data laporan keuangan (TTM & Tahunan) via Yahoo Finance API, menghitung skor fundamental, dan melakukan valuasi.
 2. **Google Sheets Storage:** Mengunggah hasil kalkulasi ke sheet spesifik berdasarkan sektor emiten (misal: `IDXTECHNO_VALUATION`, `IDXENERGY_VALUATION`, dll).
-3. **Apps Script Compiler:** Skrip otomatis di dalam Google Sheets yang menggabungkan seluruh data sektoral menjadi satu laporan konsolidasi (`COMPILE_VALUATION` & `COMPILE_DETAILS`).
+3. **Apps Script Compiler:** Skrip otomatis di dalam Google Sheets yang menggabungkan seluruh data sektoral menjadi satu laporan konsolidasi (`COMPILE_VALUATION` & `COMPILE_DETAILS`)[cite: 1].
 
 ## 🚀 Fitur Utama
 
 ### 1. Advanced Valuation Engine (Python)
-Menghitung *Fair Value* menggunakan bobot campuran dari tiga metodologi:
+Menghitung *Fair Value* menggunakan bobot campuran dari tiga metodologi[cite: 1]:
 * **Discounted Cash Flow (DCF):** Berbasis *Free Cash Flow* dengan fallback *EV/Sales* untuk perusahaan *growth*[cite: 1].
 * **Adjusted Graham Number:** Modifikasi rumus Benjamin Graham dengan konstanta ($K$) dinamis per industri[cite: 1].
 * **Relative Valuation:** Target *EV/EBITDA* spesifik sub-sektor[cite: 1].
@@ -32,18 +36,19 @@ Otomatisasi penggabungan ribuan baris data antar sektor dengan fitur[cite: 1]:
 
 ## 📁 Struktur Repositori
 * `scripts/python/`: Kode sumber utama untuk ekstraksi dan logika valuasi[cite: 1].
-* `scripts/Apps Script/`: File `.gs` berisi logika penggabungan (compiler) di Google Sheets[cite: 1].
+* `scripts/apps-script/`: File `.gs` berisi logika penggabungan (compiler) di Google Sheets[cite: 1].
 * `data/`: Sampel data hasil akhir dalam format `.csv` (`COMPILE_VALUATION` & `COMPILE_DETAILS`)[cite: 1].
+* `images/`: Berisi screenshot dashboard Looker Studio dan aset visual lainnya.
 
 ## 🛠 Tech Stack
 * **Languages:** Python (Pandas, Numpy, YFinance) & JavaScript (Google Apps Script)[cite: 1].
-* **Integration:** Google Sheets API & GSpread[cite: 1].
+* **Integration:** Google Sheets API, GSpread, & Looker Studio[cite: 1].
 * **Environment:** Google Colab / Local Python Environment[cite: 1].
 
 ## 📝 Cara Penggunaan
-1. Salin kode dari `scripts/python/` jalankan skrip Python di Google Collab untuk mengisi data sektoral di Spreadsheet Anda[cite: 1].
+1. Jalankan skrip Python di folder `scripts/python/` melalui Google Colab untuk mengisi data sektoral di Spreadsheet Anda[cite: 1].
 2. Buka **Extensions > Apps Script** di Google Sheets Anda[cite: 1].
-3. Salin kode dari `scripts/apps-script/` ke editor Apps Script[cite: 1].
+3. Salin kode dari `scripts/apps-script/` ke editor Apps Script tersebut[cite: 1].
 4. Jalankan fungsi `compileValuationSheets` atau `compileDetailsSheets` untuk mendapatkan laporan konsolidasi[cite: 1].
 
 ---
