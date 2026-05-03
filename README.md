@@ -6,8 +6,8 @@ Sistem otomatisasi pipeline data untuk melakukan analisis fundamental, valuasi m
 Proyek ini adalah sebuah **Data Pipeline** terintegrasi yang menghubungkan ekstraksi data mentah dengan dashboard analitik otomatis. Sistem ini mencakup seluruh sektor (Techno, Energy, Finance, dll.) dan mengelola ratusan emiten secara simultan.
 
 ## 🖼️ Visualisasi Dashboard
-![Looker Studio Dashboard Preview](images/dashboard_preview.png)
-> **Lihat Dashboard Interaktif:** [Link Looker Studio Anda di Sini]
+![Looker Studio Dashboard Preview](images/dashboard_preview-1.jpg)
+> **Lihat Dashboard Interaktif:** https://datastudio.google.com/reporting/e15a044e-f07f-4912-9345-efaf4e8d8f70
 
 ### Alur Kerja Sistem (Workflow)
 1. **Python Engine:** Mengekstraksi data laporan keuangan (TTM & Tahunan) via Yahoo Finance API, menghitung skor fundamental, dan melakukan valuasi.
